@@ -9,7 +9,7 @@ The raspberry Pi 4, at the moment of writing this, has a limited KMS driver, and
 You need a GCC compiler, GDM, EGL, and GLES libraries. The GCC compiler is already included in the Raspbian image. To install the other libraries, simply run:
 
 ```bash
-sudo apt-get install libegl1-mesa-dev libgbm-dev libgles2-mesa-dev
+sudo apt install libegl1-mesa-dev libgbm-dev libgles2-mesa-dev libdrm-dev
 ```
 
 You will also need to connect your Raspberry Pi to a screen. The boot config from `/boot/config.txt` that I have used for my tests, if it helps in any way:
@@ -21,6 +21,7 @@ hdmi_force_hotplug=1
 hdmi_group=2
 hdmi_mode=81
 ```
+It DOES work on Pi 4 when using (default) dtoverlay=vc4-kms-v3d instead of dtoverlay=vc4-fkms-v3d .
 
 **How do I try it?**
 
